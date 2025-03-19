@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireMate - Professional Dashboard</title>
+    <link rel="stylesheet" href="marketplace-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">HireMate</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">My Services</a>
+            <a href="#">Bookings</a>
+            <a href="#">Profile</a>
+            <a href="#">Earnings</a>
+            <a href="#" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="#"><i class="fas fa-bell"></i></a>
+            <div class="profile-dropdown">
+                <button class="profile-btn" onclick="toggleProfileDropdown()">
+                    <i class="fas fa-user"></i>
+                </button>
+                <div class="dropdown-content" id="profileDropdown">
+                    <a href="#">Profile</a>
+                    <a href="#" onclick="handleLogout()">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome, [Professional Name]</h1>
+            <button class="cta-button" onclick="manageServices()">Manage Services</button>
+            <div class="key-stats">
+                <div class="stat">
+                    <h3>Total Earnings</h3>
+                    <p>$[Total Earnings]</p>
+                </div>
+                <div class="stat">
+                    <h3>Active Bookings</h3>
+                    <p>[Active Bookings]</p>
+                </div>
+                <div class="stat">
+                    <h3>Customer Ratings</h3>
+                    <p>[Customer Ratings]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Services Section -->
+    <section class="my-services">
+        <div class="container">
+            <h2>My Services</h2>
+            <button class="add-service-btn" onclick="addService()">Add New Service</button>
+            <div class="services-list">
+                <!-- List of services provided by the professional -->
+                <div class="service-item">
+                    <h3>Service Name</h3>
+                    <p>Description of the service</p>
+                    <button class="edit-btn">Edit</button>
+                    <label class="availability-toggle">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <!-- Repeat for each service -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Bookings Section -->
+    <section class="bookings">
+        <div class="container">
+            <h2>Bookings</h2>
+            <div class="upcoming-bookings">
+                <h3>Upcoming Bookings</h3>
+                <div class="booking-item">
+                    <p>Client Name: [Client Name]</p>
+                    <p>Date: [Date]</p>
+                    <p>Time: [Time]</p>
+                    <p>Status: [Status]</p>
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="reschedule-btn">Reschedule</button>
+                </div>
+                <!-- Repeat for each upcoming booking -->
+            </div>
+            <div class="past-bookings">
+                <h3>Past Bookings</h3>
+                <div class="booking-item">
+                    <p>Client Name: [Client Name]</p>
+                    <p>Date: [Date]</p>
+                    <p>Time: [Time]</p>
+                    <p>Status: [Status]</p>
+                </div>
+                <!-- Repeat for each past booking -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Earnings & Payments Section -->
+    <section class="earnings">
+        <div class="container">
+            <h2>Earnings & Payments</h2>
+            <div class="earnings-dashboard">
+                <h3>Total Earnings</h3>
+                <p>$[Total Earnings]</p>
+                <button class="withdraw-btn">Withdraw Funds</button>
+            </div>
+            <div class="transaction-history">
+                <h3>Transaction History</h3>
+                <div class="transaction-item">
+                    <p>Date: [Date]</p>
+                    <p>Amount: $[Amount]</p>
+                    <p>Status: [Status]</p>
+                </div>
+                <!-- Repeat for each transaction -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews & Ratings Section -->
+    <section class="reviews">
+        <div class="container">
+            <h2>Customer Reviews & Ratings</h2>
+            <div class="review-item">
+                <p>Customer Name: [Customer Name]</p>
+                <p>Rating: [Rating]</p>
+                <p>Review: [Review]</p>
+                <button class="reply-btn">Reply</button>
+            </div>
+            <!-- Repeat for each review -->
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Support</h3>
+                <p>Email: support@hiremate.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Terms & Conditions</h3>
+                <p><a href="#">Read our terms and conditions</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 HireMate. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle profile dropdown
+        function toggleProfileDropdown() {
+            const profileDropdown = document.getElementById('profileDropdown');
+            profileDropdown.classList.toggle('show');
+        }
+
+        // Handle logout
+        function handleLogout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('userName');
+            window.location.href = 'login.html';
+        }
+
+        // Manage services
+        function manageServices() {
+            // Logic to manage services
+        }
+
+        // Add new service
+        function addService() {
+            // Logic to add new service
+        }
+
+        // Close profile dropdown when clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-btn')) {
+                const dropdowns = document.getElementsByClassName('dropdown-content');
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireMate - Marketplace</title>
+    <link rel="stylesheet" href="marketplace-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">HireMate</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search services...">
+            <button><i class="fas fa-search"></i> Search</button>
+        </div>
+        <div class="nav-links">
+            <a href="#" id="userProfileBtn"><i class="fas fa-user"></i> Profile</a>
+            <div class="menu-container">
+                <button class="menu-toggle" onclick="toggleMenu(event)">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="menu-dropdown" id="menuDropdown">
+                    <div class="menu-header">
+                        <a href="#" onclick="toggleDashboard(event)">
+                            <i class="fas fa-th-large"></i> My Dashboard
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                        <div class="main-menu" id="mainMenu">
+                            <a href="#" class="dashboard-trigger" onclick="toggleDashboard(event)">
+                                <i class="fas fa-th-large"></i> My Dashboard
+                            </a>
+                            <div class="dashboard-submenu" id="dashboardSubmenu">
+                                <a href="#"><i class="fas fa-calendar-check"></i> My Bookings</a>
+                                <a href="#"><i class="fas fa-history"></i> Booking History</a>
+                                <a href="#"><i class="fas fa-wallet"></i> Wallet Balance</a>
+                                <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+                                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </nav>
+
+    <!-- Add Dashboard Menu (Initially Hidden) -->
+    <div class="dashboard-menu" id="dashboardMenu">
+        <div class="dashboard-content">
+            <h3>My Dashboard</h3>
+            <div class="dashboard-items">
+                <a href="#"><i class="fas fa-calendar-check"></i> My Bookings</a>
+                <a href="#"><i class="fas fa-history"></i> Booking History</a>
+                <a href="#"><i class="fas fa-wallet"></i> Wallet Balance</a>
+                <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Find the Perfect Service Provider</h1>
+            <p>Connect with trusted professionals in your area</p>
+            <button class="cta-button" onclick="scrollToCategories()">Explore Services</button>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2>Browse by Category</h2>
+            <div class="category-grid">
+                <!-- Technology Category -->
+                <div class="category-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Technology</h3>
+                    <div class="services-list">
+                        <div class="service-item">
+                            <span>Computer Repair</span>
+                            <span>$50/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>IT Consulting</span>
+                            <span>$75/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Web Development</span>
+                            <span>$65/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Network Setup</span>
+                            <span>$80/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Data Recovery</span>
+                            <span>$90/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Virus Removal</span>
+                            <span>$45/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Software Installation</span>
+                            <span>$40/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Smart Home Setup</span>
+                            <span>$70/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Tech Training</span>
+                            <span>$55/hr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home Services Category -->
+                <div class="category-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Home Services</h3>
+                    <div class="services-list">
+                        <div class="service-item">
+                            <span>House Cleaning</span>
+                            <span>$35/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Plumbing</span>
+                            <span>$65/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Electrical Work</span>
+                            <span>$70/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Painting</span>
+                            <span>$45/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Carpentry</span>
+                            <span>$60/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Garden Maintenance</span>
+                            <span>$40/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Pest Control</span>
+                            <span>$80/visit</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Interior Design</span>
+                            <span>$85/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Moving Services</span>
+                            <span>$75/hr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Category -->
+                <div class="category-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Education</h3>
+                    <div class="services-list">
+                        <div class="service-item">
+                            <span>Math Tutoring</span>
+                            <span>$40/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Science Tutoring</span>
+                            <span>$45/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Language Classes</span>
+                            <span>$35/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Test Preparation</span>
+                            <span>$50/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Music Lessons</span>
+                            <span>$45/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Art Classes</span>
+                            <span>$40/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Coding Classes</span>
+                            <span>$55/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Business Tutoring</span>
+                            <span>$60/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Writing Help</span>
+                            <span>$40/hr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Body & Hair Care Category -->
+                <div class="category-card">
+                    <i class="fas fa-spa"></i>
+                    <h3>Body & Hair Care</h3>
+                    <div class="services-list">
+                        <div class="service-item">
+                            <span>Haircut & Styling</span>
+                            <span>$45/service</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Hair Coloring</span>
+                            <span>$85/service</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Massage Therapy</span>
+                            <span>$70/hr</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Facial Treatment</span>
+                            <span>$65/service</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Manicure</span>
+                            <span>$35/service</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Pedicure</span>
+                            <span>$40/service</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Waxing</span>
+                            <span>$30/area</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Hair Treatment</span>
+                            <span>$75/service</span>
+                        </div>
+                        <div class="service-item">
+                            <span>Makeup Service</span>
+                            <span>$55/service</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Initially Hidden) -->
+    <section class="services-section" id="servicesSection">
+        <div class="container">
+            <div class="services-header">
+                <button class="back-btn" onclick="hideServices()">
+                    <i class="fas fa-arrow-left"></i> Back to Categories
+                </button>
+                <h2 id="selectedCategory">Category Services</h2>
+            </div>
+            <div class="services-grid" id="servicesGrid">
+                <!-- Services will be dynamically populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Rated Professionals -->
+    <section class="professionals" id="professionals">
+        <div class="container">
+            <h2>Top-Rated Professionals</h2>
+            <div class="professionals-grid">
+                <!-- Professional 1 -->
+                <div class="professional-card">
+                    <div class="pro-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3" alt="John Doe">
+                        <div class="pro-badge">Top Rated</div>
+                    </div>
+                    <div class="pro-info">
+                        <h3>John Doe</h3>
+                        <p class="pro-title">Home Renovation Expert</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(128 reviews)</span>
+                        </div>
+                        <div class="pro-details">
+                            <p><i class="fas fa-map-marker-alt"></i> New York City</p>
+                            <p><i class="fas fa-briefcase"></i> 8 years experience</p>
+                            <p><i class="fas fa-clock"></i> $45/hour</p>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Professional 2 -->
+                <div class="professional-card">
+                    <div class="pro-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3" alt="Sarah Smith">
+                        <div class="pro-badge">Featured</div>
+                    </div>
+                    <div class="pro-info">
+                        <h3>Sarah Smith</h3>
+                        <p class="pro-title">Interior Designer</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(95 reviews)</span>
+                        </div>
+                        <div class="pro-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Los Angeles</p>
+                            <p><i class="fas fa-briefcase"></i> 6 years experience</p>
+                            <p><i class="fas fa-clock"></i> $55/hour</p>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Professional 3 -->
+                <div class="professional-card">
+                    <div class="pro-image">
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3" alt="Mike Johnson">
+                        <div class="pro-badge">Premium</div>
+                    </div>
+                    <div class="pro-info">
+                        <h3>Mike Johnson</h3>
+                        <p class="pro-title">Plumbing Specialist</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(156 reviews)</span>
+                        </div>
+                        <div class="pro-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Chicago</p>
+                            <p><i class="fas fa-briefcase"></i> 10 years experience</p>
+                            <p><i class="fas fa-clock"></i> $40/hour</p>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Professional 4 -->
+                <div class="professional-card">
+                    <div class="pro-image">
+                        <img src="https://images.unsplash.com/photo-1580518337843-f959e992563b?ixlib=rb-4.0.3" alt="Emily Chen">
+                        <div class="pro-badge">Top Rated</div>
+                    </div>
+                    <div class="pro-info">
+                        <h3>Emily Chen</h3>
+                        <p class="pro-title">Electrical Engineer</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(142 reviews)</span>
+                        </div>
+                        <div class="pro-details">
+                            <p><i class="fas fa-map-marker-alt"></i> San Francisco</p>
+                            <p><i class="fas fa-briefcase"></i> 7 years experience</p>
+                            <p><i class="fas fa-clock"></i> $60/hour</p>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Professional 5 -->
+                <div class="professional-card">
+                    <div class="pro-image">
+                        <img src="https://images.unsplash.com/photo-1562788869-4ed32648eb72?ixlib=rb-4.0.3" alt="David Wilson">
+                        <div class="pro-badge">Featured</div>
+                    </div>
+                    <div class="pro-info">
+                        <h3>David Wilson</h3>
+                        <p class="pro-title">Landscaping Expert</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(89 reviews)</span>
+                        </div>
+                        <div class="pro-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Seattle</p>
+                            <p><i class="fas fa-briefcase"></i> 5 years experience</p>
+                            <p><i class="fas fa-clock"></i> $35/hour</p>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Professional 6 -->
+                <div class="professional-card">
+                    <div class="pro-image">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3" alt="Maria Garcia">
+                        <div class="pro-badge">Premium</div>
+                    </div>
+                    <div class="pro-info">
+                        <h3>Maria Garcia</h3>
+                        <p class="pro-title">HVAC Specialist</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(112 reviews)</span>
+                        </div>
+                        <div class="pro-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Miami</p>
+                            <p><i class="fas fa-briefcase"></i> 9 years experience</p>
+                            <p><i class="fas fa-clock"></i> $50/hour</p>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Dashboard -->
+    <section class="dashboard">
+        <h2>My Dashboard</h2>
+        <div class="dashboard-grid">
+            <div class="dashboard-card upcoming-bookings">
+                <h3>Upcoming Bookings</h3>
+                <div class="booking-list">
+                    <!-- Upcoming bookings will be listed here -->
+                </div>
+            </div>
+            <div class="dashboard-card past-bookings">
+                <h3>Past Bookings</h3>
+                <div class="booking-list">
+                    <!-- Past bookings will be listed here -->
+                </div>
+            </div>
+            <div class="dashboard-card wallet">
+                <h3>Wallet Balance</h3>
+                <div class="balance">$250.00</div>
+                <button class="add-money">Add Money</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About HireMate</h3>
+                <p>Connecting you with trusted local service providers</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> support@hiremate.com</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 HireMate. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Check authentication
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!localStorage.getItem('isLoggedIn')) {
+                window.location.href = 'login.html';
+            }
+            
+            // Display user name
+            const userName = localStorage.getItem('userName');
+            if (userName) {
+                document.getElementById('userProfileBtn').innerHTML = `<i class="fas fa-user"></i> ${userName}`;
+            }
+
+            // Adjust navbar height offset for proper section alignment
+            const navbar = document.querySelector('.navbar');
+            const navbarHeight = navbar.offsetHeight;
+            document.documentElement.style.setProperty('--navbar-height', `${navbarHeight}px`);
+        });
+
+        // Logout function
+        function handleLogout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('userName');
+            window.location.href = 'login.html';
+        }
+
+        // Smooth scroll to categories
+        function scrollToCategories() {
+            const categoriesSection = document.getElementById('categories');
+            categoriesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const servicesByCategory = {
+            'Technology': [
+                { name: 'Computer Repair', price: '$50/hr', icon: 'fa-laptop', description: 'Professional computer repair and maintenance services' },
+                { name: 'IT Consulting', price: '$75/hr', icon: 'fa-tasks', description: 'Expert IT consultation and solutions' },
+                { name: 'Web Development', price: '$65/hr', icon: 'fa-code', description: 'Custom website development and maintenance' },
+                { name: 'Network Setup', price: '$80/hr', icon: 'fa-network-wired', description: 'Professional network installation and configuration' },
+                { name: 'Data Recovery', price: '$90/hr', icon: 'fa-database', description: 'Recovery of lost or corrupted data' },
+                { name: 'Virus Removal', price: '$45/hr', icon: 'fa-shield-virus', description: 'Removal of viruses and malware' },
+                { name: 'Software Installation', price: '$40/hr', icon: 'fa-download', description: 'Software installation and setup' },
+                { name: 'Smart Home Setup', price: '$70/hr', icon: 'fa-home', description: 'Smart home device installation and configuration' },
+                { name: 'Tech Training', price: '$55/hr', icon: 'fa-chalkboard-teacher', description: 'Personalized technology training sessions' }
+            ],
+            'Home Services': [
+                { name: 'Plumbing', price: '$60/hr', icon: 'fa-wrench', description: 'Professional plumbing services for your home' },
+                { name: 'Electrical Work', price: '$70/hr', icon: 'fa-bolt', description: 'Expert electrical installation and repair' },
+                { name: 'House Cleaning', price: '$30/hr', icon: 'fa-broom', description: 'Thorough and reliable house cleaning services' },
+                { name: 'Gardening', price: '$40/hr', icon: 'fa-seedling', description: 'Professional gardening and landscaping services' },
+                { name: 'Pest Control', price: '$50/hr', icon: 'fa-bug', description: 'Effective pest control solutions' },
+                { name: 'Painting', price: '$45/hr', icon: 'fa-paint-roller', description: 'Interior and exterior painting services' },
+                { name: 'Carpentry', price: '$55/hr', icon: 'fa-hammer', description: 'Custom carpentry and woodworking services' },
+                { name: 'HVAC Maintenance', price: '$65/hr', icon: 'fa-fan', description: 'Heating, ventilation, and air conditioning services' },
+                { name: 'Moving Services', price: '$80/hr', icon: 'fa-truck', description: 'Professional moving and relocation services' }
+            ],
+            'Education': [
+                { name: 'Math Tutoring', price: '$40/hr', icon: 'fa-square-root-alt', description: 'Personalized math tutoring for all levels' },
+                { name: 'Science Tutoring', price: '$45/hr', icon: 'fa-flask', description: 'Expert science tutoring for students' },
+                { name: 'Language Lessons', price: '$35/hr', icon: 'fa-language', description: 'Language lessons for various languages' },
+                { name: 'Music Lessons', price: '$50/hr', icon: 'fa-music', description: 'Private music lessons for different instruments' },
+                { name: 'Art Classes', price: '$30/hr', icon: 'fa-palette', description: 'Creative art classes for all ages' },
+                { name: 'Test Preparation', price: '$60/hr', icon: 'fa-book', description: 'Comprehensive test preparation services' },
+                { name: 'Coding Lessons', price: '$55/hr', icon: 'fa-code', description: 'Learn coding and programming skills' },
+                { name: 'Dance Classes', price: '$40/hr', icon: 'fa-dance', description: 'Dance classes for various styles' },
+                { name: 'Cooking Classes', price: '$50/hr', icon: 'fa-utensils', description: 'Learn to cook with professional chefs' }
+            ],
+            'Body & Hair Care': [
+                { name: 'Haircut', price: '$25', icon: 'fa-cut', description: 'Professional haircut services' },
+                { name: 'Manicure', price: '$20', icon: 'fa-hand-sparkles', description: 'Manicure and nail care services' },
+                { name: 'Massage Therapy', price: '$60/hr', icon: 'fa-spa', description: 'Relaxing massage therapy sessions' },
+                { name: 'Facial Treatment', price: '$50', icon: 'fa-smile', description: 'Rejuvenating facial treatments' },
+                { name: 'Makeup Services', price: '$40', icon: 'fa-magic', description: 'Professional makeup services for events' },
+                { name: 'Hair Coloring', price: '$70', icon: 'fa-paint-brush', description: 'Expert hair coloring services' },
+                { name: 'Waxing', price: '$30', icon: 'fa-waxing', description: 'Body waxing services' },
+                { name: 'Pedicure', price: '$25', icon: 'fa-foot', description: 'Pedicure and foot care services' },
+                { name: 'Skincare Consultation', price: '$45', icon: 'fa-leaf', description: 'Personalized skincare consultations' }
+            ]
+        };
+
+        // Show services when clicking on category
+        function showServices(category) {
+            const servicesSection = document.getElementById('servicesSection');
+            const categoriesSection = document.getElementById('categories');
+            const selectedCategory = document.getElementById('selectedCategory');
+            const servicesGrid = document.getElementById('servicesGrid');
+            
+            // Update category title
+            selectedCategory.textContent = category + ' Services';
+            
+            // Clear existing services
+            servicesGrid.innerHTML = '';
+            
+            // Add services for selected category
+            servicesByCategory[category].forEach(service => {
+                const serviceCard = `
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas ${service.icon}"></i>
+                        </div>
+                        <h3>${service.name}</h3>
+                        <p>${service.description}</p>
+                        <div class="service-price">${service.price}</div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                `;
+                servicesGrid.innerHTML += serviceCard;
+            });
+            
+            // Hide categories and show services
+            categoriesSection.style.display = 'none';
+            servicesSection.style.display = 'block';
+            
+            // Smooth scroll to services section
+            servicesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Hide services and show categories
+        function hideServices() {
+            const servicesSection = document.getElementById('servicesSection');
+            const categoriesSection = document.getElementById('categories');
+            
+            servicesSection.style.display = 'none';
+            categoriesSection.style.display = 'block';
+            
+            // Smooth scroll to categories section
+            categoriesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Add click event listeners to category cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const category = this.querySelector('h3').textContent;
+                    showServices(category);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

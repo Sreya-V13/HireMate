@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    min-height: 100vh;
+}
+
+nav {
+    background: white;
+    padding: 1rem 5%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    cursor: pointer;
+}
+
+.auth-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.profile-type {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7f8c8d;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.captcha-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.captcha {
+    flex: 1;
+    padding: 12px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.refresh-captcha {
+    background: none;
+    border: none;
+    color: #3498db;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #2980b9;
+}
+
+.switch-form {
+    text-align: center;
+    color: #666;
+}
+
+.switch-form a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        margin: 1rem auto;
+    }
+
+    .form-container {
+        padding: 1.5rem;
+    }
+}
+
+/* Professional ID field styling */
+#professionalId {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+/* Registration form specific styles */
+#profession {
+    text-transform: capitalize;
+}
+
+#registerPhone {
+    letter-spacing: 1px;
+}
+
+/* Success message styling */
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Professional form specific styles */
+.form-container form {
+    margin-top: 1rem;
+}
+
+.input-group input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+} 
